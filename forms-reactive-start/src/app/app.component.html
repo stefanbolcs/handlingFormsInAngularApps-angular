@@ -34,6 +34,22 @@
               >{{ gender }}
           </label>
         </div>
+        <div>
+          <div formArrayName="hobbies">
+          <h4> Your hobbies </h4>
+          <button 
+          class="btn btn-default" 
+          type="button" 
+          (click)="onAddHobby()"
+          >
+          Add hobby
+        </button>
+        <div class="form-group" *ngFor="let hobbyControl of getControls(); let i = index">
+          <input type="text" class="form-control" [formControlName]="i">
+        </div>
+      </div>
+        
+      </div>
         <span *ngIf="!signupForm.valid && signupForm.touched"
             class="help-block"> Please enter a valid data!</span>
         <button class="btn btn-primary" type="submit">Submit</button>
